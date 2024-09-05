@@ -9,6 +9,7 @@ typedef struct{
 	
 	uint8_t vel;
 	uint8_t note;
+	uint8_t string;
 	uint16_t start_time;
 	uint16_t NoteOn_Time;
 

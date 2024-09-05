@@ -2,6 +2,7 @@
 #include "bg_looper_source.h"
 #include "bg_looper.h"
 #include "bg_looper_conf.h"
+#include <stdio.h>
 
 ErrorCode bg_looper_play(uint8_t ch);
 ErrorCode bg_looper_record(uint8_t ch, uint8_t tone);
@@ -54,7 +55,8 @@ void note_recorder(uint8_t state, uint8_t note, uint8_t vel)
 		string = state&0x0F;
 
 		if(note_state == 0x90){
-
+			// if
+			// loop_run_data.last_note[string].start_time;
 		}
 		else if(note_state == 0x80)
 		{

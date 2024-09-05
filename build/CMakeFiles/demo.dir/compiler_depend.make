@@ -23,7 +23,19 @@ CMakeFiles/demo.dir/src/bg_looper.c.o: ../src/bg_looper.c \
   /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
   ../include/bg_looper_conf.h \
   ../include/bg_looper_conf.h \
-  ../include/bg_looper_setting.h
+  ../include/bg_looper_setting.h \
+  /usr/include/stdio.h \
+  /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
+  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/floatn.h \
+  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
 
 CMakeFiles/demo.dir/src/bg_looper_setting.c.o: ../src/bg_looper_setting.c \
   /usr/include/stdc-predef.h \
@@ -49,7 +61,19 @@ CMakeFiles/demo.dir/src/bg_looper_setting.c.o: ../src/bg_looper_setting.c \
   ../include/bg_looper_source.h \
   ../include/bg_looper_setting.h \
   ../include/bg_looper.h \
-  ../include/bg_looper_conf.h
+  ../include/bg_looper_conf.h \
+  /usr/include/stdio.h \
+  /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
+  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/floatn.h \
+  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
 
 CMakeFiles/demo.dir/src/main.c.o: ../src/main.c \
   /usr/include/stdc-predef.h \
@@ -189,6 +213,16 @@ CMakeFiles/demo.dir/src/main.c.o: ../src/main.c \
 
 /usr/include/x86_64-linux-gnu/bits/struct_mutex.h:
 
+/usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
+
+/usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
+
+/usr/include/x86_64-linux-gnu/bits/wchar.h:
+
+/usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
+
 /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h:
 
 /usr/include/stdint.h:
@@ -205,22 +239,6 @@ CMakeFiles/demo.dir/src/main.c.o: ../src/main.c \
 
 ../include/bg_looper_conf.h:
 
-/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
-
-/usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
-
-/usr/include/x86_64-linux-gnu/bits/wchar.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h:
-
-/usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
-
-/usr/include/x86_64-linux-gnu/bits/sigthread.h:
-
-/usr/include/x86_64-linux-gnu/bits/sigevent-consts.h:
-
-../include/bg_looper_source.h:
-
 /usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
 
 /usr/include/x86_64-linux-gnu/bits/typesizes.h:
@@ -228,10 +246,6 @@ CMakeFiles/demo.dir/src/main.c.o: ../src/main.c \
 /usr/include/x86_64-linux-gnu/bits/types/stack_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
-
-/usr/include/endian.h:
 
 /usr/include/x86_64-linux-gnu/bits/endianness.h:
 
@@ -257,9 +271,15 @@ CMakeFiles/demo.dir/src/main.c.o: ../src/main.c \
 
 /usr/include/stdio.h:
 
-../src/main.c:
+/usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h:
 
-../src/bg_looper_setting.c:
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
 
@@ -277,23 +297,27 @@ CMakeFiles/demo.dir/src/main.c.o: ../src/main.c \
 
 /usr/include/features-time64.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
-
-/usr/include/x86_64-linux-gnu/sys/cdefs.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h:
-
 /usr/include/x86_64-linux-gnu/bits/floatn.h:
 
 /usr/include/x86_64-linux-gnu/bits/floatn-common.h:
+
+../src/bg_looper_setting.c:
+
+/usr/include/x86_64-linux-gnu/bits/sigthread.h:
+
+/usr/include/x86_64-linux-gnu/bits/sigevent-consts.h:
+
+../include/bg_looper_source.h:
+
+/usr/include/endian.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
+
+../src/main.c:
+
+/usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h:
 
 /usr/include/x86_64-linux-gnu/bits/waitflags.h:
 

@@ -18,6 +18,7 @@ typedef struct{
 typedef struct{
 	
 	uint8_t looper_enable;
+	uint8_t first_bit;
 	uint8_t recording_flag;
 	uint8_t channel_state[MAX_CH];
 	uint16_t recording_count;
@@ -32,6 +33,7 @@ typedef struct{
 	
 		ErrorCode (*recording)(uint8_t);
 		ErrorCode (*play)(uint8_t);
+		ErrorCode (*stop)(uint8_t, uint8_t);
 
 }Loop_run_task;
 void bg_looper_run(void);
