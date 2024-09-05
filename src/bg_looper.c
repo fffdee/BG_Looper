@@ -1,6 +1,9 @@
 #include "bg_looper.h"
 #include "bg_looper_conf.h"
 
+uint8_t bg_looper_recording(uint8_t ch);
+uint8_t bg_looper_plays(uint8_t ch);
+
 Loop_run_data loop_run_data = {
 	
 	.loop_state = 0,
@@ -12,7 +15,7 @@ Loop_run_data loop_run_data = {
 
 Loop_run_task loop_run_task = {
 
-	.play = bg_looper_play,
+	.play = bg_looper_plays,
 	.recording = bg_looper_recording,
 
 };
@@ -45,7 +48,7 @@ uint8_t bg_looper_recording(uint8_t ch)
 	
 }
 
-uint8_t bg_looper_play(uint8_t ch)
+uint8_t bg_looper_plays(uint8_t ch)
 {
 
 }

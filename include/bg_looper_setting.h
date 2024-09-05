@@ -13,7 +13,7 @@ typedef struct{
 		ErrorCode (*stop_all)(void);
 		uint8_t (*state)(void);
 		void (*callback)(void);
-		ErrorCode (*get_recording_state)(uint8_t);
+		uint8_t (*get_recording_state)(void);
 
 }BG_Looper;
 

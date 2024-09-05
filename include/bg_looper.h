@@ -20,6 +20,6 @@ typedef struct{
 		ErrorCode (*play)(uint8_t);
 
 }Loop_run_task;
-
+void bg_looper_run(void);
 extern Loop_run_data loop_run_data;
 #endif

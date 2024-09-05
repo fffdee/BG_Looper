@@ -1,0 +1,1 @@
+gcc CMakeFiles/demo.dir/src/main.c.o CMakeFiles/demo.dir/src/bg_looper.c.o CMakeFiles/demo.dir/src/bg_looper_setting.c.o -o demo 

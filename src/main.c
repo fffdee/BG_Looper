@@ -4,11 +4,12 @@
 #include <signal.h>
 #include <sys/time.h>
 #include "bg_looper_conf.h"
+#include "bg_looper_setting.h"
 
 
 void timer_handler(int signum) {
-    printf("Timer expired\n");
-    // 在这里添加你的代码，比如更新状态、处理数据等
+    
+    bg_looper.callback();
 }
 
 void time_init(){
