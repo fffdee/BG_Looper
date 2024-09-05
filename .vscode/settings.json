@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "bg_looper_conf.h": "c",
+        "stdint.h": "c"
+    }
+}

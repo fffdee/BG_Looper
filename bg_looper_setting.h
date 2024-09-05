@@ -1,5 +1,5 @@
-#ifndef _BG_LOOPER_H_
-#define _BG_LOOPER_H_
+#ifndef _BG_LOOPER_SETTING_H_
+#define _BG_LOOPER_SETTING_H_
 
 #include "stdint.h"
 #include "bg_looper_conf.h"
@@ -16,7 +16,6 @@ typedef struct{
 		ErrorCode (*get_recording_state)(uint8_t);
 
 }BG_Looper;
-
 
 
 extern BG_Looper bg_looper;
