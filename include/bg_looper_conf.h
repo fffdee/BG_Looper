@@ -2,14 +2,18 @@
 #define _BG_LOOPER_CONF_H__
 
 
+#define NOTE_ON                   0x90
+#define NOTE_OFF                  0x80
 
+#define MAX_CH 			          10
+#define MAX_LOOP_COUNT            200	
+#define MAX_TONE                  9
 
-#define MAX_CH 			10
-#define MAX_LOOP_COUNT  200	
-#define MAX_TONE        9
-
-#define RECORDING       0
-#define PLAY            1
+#define STOP_ALL                  0
+#define RECORDING                 1
+#define PLAY                      2
+#define RECORDING_STOP            3
+#define PLAY_STOP                 4
 
 typedef enum {
     

@@ -7,9 +7,10 @@
 typedef struct{
 
 		ErrorCode (*enable)(uint8_t);
-		ErrorCode (*start)(uint8_t);
-		ErrorCode (*stop)(uint8_t);
+		ErrorCode (*record)(uint8_t,uint8_t);
 		ErrorCode (*play)(uint8_t);
+		ErrorCode (*stop_record)(uint8_t);
+		ErrorCode (*stop_play)(uint8_t);
 		ErrorCode (*stop_all)(void);
 		uint8_t (*state)(void);
 		void (*callback)(void);

@@ -22,7 +22,8 @@ CMakeFiles/demo.dir/src/bg_looper.c.o: ../src/bg_looper.c \
   /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
   /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
   ../include/bg_looper_conf.h \
-  ../include/bg_looper_conf.h
+  ../include/bg_looper_conf.h \
+  ../include/bg_looper_setting.h
 
 CMakeFiles/demo.dir/src/bg_looper_setting.c.o: ../src/bg_looper_setting.c \
   /usr/include/stdc-predef.h \

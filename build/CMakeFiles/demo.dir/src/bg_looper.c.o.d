@@ -17,4 +17,5 @@ CMakeFiles/demo.dir/src/bg_looper.c.o: \
  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
  /home/bango/BG_Looper/include/bg_looper_conf.h \
- /home/bango/BG_Looper/include/bg_looper_conf.h
+ /home/bango/BG_Looper/include/bg_looper_conf.h \
+ /home/bango/BG_Looper/include/bg_looper_setting.h
