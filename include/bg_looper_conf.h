@@ -1,6 +1,7 @@
 #ifndef _BG_LOOPER_CONF_H__
 #define _BG_LOOPER_CONF_H__
 
+#define DEBUG                     1
 
 #define NOTE_ON                   0x90
 #define NOTE_OFF                  0x80
@@ -14,6 +15,8 @@
 #define PLAY                      2
 #define RECORDING_STOP            3
 #define PLAY_STOP                 4
+
+#define INVALID                   0xFF
 
 typedef enum {
     

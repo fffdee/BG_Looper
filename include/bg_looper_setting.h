@@ -7,6 +7,7 @@
 typedef struct{
 
 		ErrorCode (*enable)(uint8_t);
+		void (*note_recorder)(uint8_t,uint8_t,uint8_t);
 		ErrorCode (*record)(uint8_t,uint8_t);
 		ErrorCode (*play)(uint8_t);
 		ErrorCode (*stop_record)(uint8_t);

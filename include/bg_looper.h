@@ -10,6 +10,7 @@ typedef struct{
 	uint8_t vel;
 	uint8_t note;
 	uint8_t string;
+	uint8_t noteon_flag;
 	uint16_t start_time;
 	uint16_t NoteOn_Time;
 
@@ -20,13 +21,14 @@ typedef struct{
 	uint8_t looper_enable;
 	uint8_t first_bit;
 	uint8_t recording_flag;
+	uint8_t play_flag[MAX_CH];
 	uint8_t channel_state[MAX_CH];
+	Last_note last_note[6];
+	uint16_t noteon_time[6];
+	uint16_t loop_play_time[MAX_CH];
 	uint16_t recording_count;
 	uint16_t loop_recording_time;
-	uint16_t loop_play_time[MAX_CH];
-	Last_note last_note[6];
-	
-	
+
 }Loop_run_data;
 
 typedef struct{
@@ -36,6 +38,8 @@ typedef struct{
 		ErrorCode (*stop)(uint8_t, uint8_t);
 
 }Loop_run_task;
+
 void bg_looper_run(void);
+
 
 #endif

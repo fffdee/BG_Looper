@@ -1,6 +1,19 @@
+/*****************************************************
+ mmmmmm                           mmmm     mmmm   
+ ##""""##                       ##""""#   ##""##   
+ ##    ##   m#####m  ##m####m  ##        ##    ## 
+ #######    " mmm##  ##"   ##  ##  mmmm  ##    ## 
+ ##    ##  m##"""##  ##    ##  ##  ""##  ##    ## 
+ ##mmmm##  ##mmm###  ##    ##   ##mmm##   ##mm##  
+ """""""    """" ""  ""    ""     """"     """"   
+******************************************************
+  funstion: Main component of BG_Looper
+	author  : BanGO
+******************************************************/
 #include "bg_looper.h"
 #include "bg_looper_conf.h"
 #include "bg_looper_setting.h"
+#include "bg_looper_play.h"
 #include <stdio.h>
 
 uint8_t bg_looper_recording(uint8_t ch);
@@ -13,8 +26,10 @@ Loop_run_data loop_run_data = {
 	.recording_flag = 0,
 	.channel_state = {3},
 	.loop_play_time = {0},
-	.loop_recording_time = 0,
 	.last_note = {0},
+	.noteon_time = {0},
+	.loop_recording_time = 0,
+	
 	
 
 };
@@ -64,6 +79,18 @@ uint8_t bg_looper_recording(uint8_t ch)
 {
 	if(loop_run_data.recording_flag!=1){
 		loop_run_data.first_bit = 1;
+		loop_run_data.recording_flag = 1;
+	}else {
+		
+		loop_run_data.loop_recording_time++;
+		for (uint8_t i = 0; i < 6; i++)
+		{
+			if(loop_run_data.last_note[i].noteon_flag == 1)
+				loop_run_data.noteon_time[i]++;
+			else
+				loop_run_data.noteon_time[i]=0;
+		}
+		
 	}
 	
 	
@@ -71,10 +98,20 @@ uint8_t bg_looper_recording(uint8_t ch)
 
 uint8_t bg_looper_plays(uint8_t ch)
 {
-
+	
+		looper_play(ch);
+	
+	
 }
 
 uint8_t bg_looper_stop(uint8_t state, uint8_t ch)
 {
+		if(state){
+
+		 looper_stop(ch);
+
+		}else loop_run_data.recording_flag = 0;
+
+		loop_run_data.channel_state[ch] = INVALID;
 
 }

@@ -10,6 +10,7 @@ set(SRC_FILES
     ./src/main.c
     ./src/bg_looper.c
     ./src/bg_looper_setting.c
+    ./src/bg_looper_play.c
 )
 
 # 设置头文件目录
@@ -19,4 +20,4 @@ include_directories(include)
 add_executable(demo ${SRC_FILES})
 
 # 链接所需的库（如果有的话）
-# target_link_libraries(${PROJECT_NAME}${LIBRARIES})
+target_link_libraries(demo ev)

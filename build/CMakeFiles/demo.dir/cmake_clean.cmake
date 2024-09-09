@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/demo.dir/src/bg_looper.c.o"
   "CMakeFiles/demo.dir/src/bg_looper.c.o.d"
+  "CMakeFiles/demo.dir/src/bg_looper_play.c.o"
+  "CMakeFiles/demo.dir/src/bg_looper_play.c.o.d"
   "CMakeFiles/demo.dir/src/bg_looper_setting.c.o"
   "CMakeFiles/demo.dir/src/bg_looper_setting.c.o.d"
   "CMakeFiles/demo.dir/src/main.c.o"

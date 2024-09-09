@@ -153,6 +153,30 @@ src/bg_looper.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/bg_looper.c.s
 .PHONY : src/bg_looper.c.s
 
+src/bg_looper_play.o: src/bg_looper_play.c.o
+.PHONY : src/bg_looper_play.o
+
+# target to build an object file
+src/bg_looper_play.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/bg_looper_play.c.o
+.PHONY : src/bg_looper_play.c.o
+
+src/bg_looper_play.i: src/bg_looper_play.c.i
+.PHONY : src/bg_looper_play.i
+
+# target to preprocess a source file
+src/bg_looper_play.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/bg_looper_play.c.i
+.PHONY : src/bg_looper_play.c.i
+
+src/bg_looper_play.s: src/bg_looper_play.c.s
+.PHONY : src/bg_looper_play.s
+
+# target to generate assembly for a file
+src/bg_looper_play.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/demo.dir/build.make CMakeFiles/demo.dir/src/bg_looper_play.c.s
+.PHONY : src/bg_looper_play.c.s
+
 src/bg_looper_setting.o: src/bg_looper_setting.c.o
 .PHONY : src/bg_looper_setting.o
 
@@ -213,6 +237,9 @@ help:
 	@echo "... src/bg_looper.o"
 	@echo "... src/bg_looper.i"
 	@echo "... src/bg_looper.s"
+	@echo "... src/bg_looper_play.o"
+	@echo "... src/bg_looper_play.i"
+	@echo "... src/bg_looper_play.s"
 	@echo "... src/bg_looper_setting.o"
 	@echo "... src/bg_looper_setting.i"
 	@echo "... src/bg_looper_setting.s"

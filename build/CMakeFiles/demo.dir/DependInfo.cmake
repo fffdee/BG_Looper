@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/bango/BG_Looper/src/bg_looper.c" "CMakeFiles/demo.dir/src/bg_looper.c.o" "gcc" "CMakeFiles/demo.dir/src/bg_looper.c.o.d"
+  "/home/bango/BG_Looper/src/bg_looper_play.c" "CMakeFiles/demo.dir/src/bg_looper_play.c.o" "gcc" "CMakeFiles/demo.dir/src/bg_looper_play.c.o.d"
   "/home/bango/BG_Looper/src/bg_looper_setting.c" "CMakeFiles/demo.dir/src/bg_looper_setting.c.o" "gcc" "CMakeFiles/demo.dir/src/bg_looper_setting.c.o.d"
   "/home/bango/BG_Looper/src/main.c" "CMakeFiles/demo.dir/src/main.c.o" "gcc" "CMakeFiles/demo.dir/src/main.c.o.d"
   )
