@@ -1,6 +1,7 @@
 #ifndef _BG_LOOPER_CONF_H__
 #define _BG_LOOPER_CONF_H__
 
+
 #define DEBUG                     1
 
 #define NOTE_ON                   0x90
@@ -23,6 +24,8 @@ typedef enum {
     SUCCESS = 0,         // 通常0表示成功
     ERROR_INVALID_INPUT, // 无效输入
     ERROR_OUT_OF_CH_RANGE,  // 超出通道范围
+    CH_NO_RECORDING_NOW,
+    CH_NO_PLAYING_NOW,
 
 } ErrorCode;
 

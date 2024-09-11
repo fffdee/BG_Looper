@@ -1,8 +1,9 @@
 #ifndef _BG_LOOPER_SOURCE_H__
 #define _BG_LOOPER_SOURCE_H__
 
-#include "bg_looper_setting.h"
+
 #include "bg_looper_conf.h"
+
 
 
 typedef struct{
@@ -53,7 +54,5 @@ Loop_source loop_source[MAX_CH] = {
 	{0,0,0,0,loop_ch9},
 	
 };	
-
-
-
+extern Loop_source loop_source[MAX_CH];
 #endif

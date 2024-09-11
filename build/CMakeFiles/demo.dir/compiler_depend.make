@@ -25,6 +25,7 @@ CMakeFiles/demo.dir/src/bg_looper.c.o: ../src/bg_looper.c \
   ../include/bg_looper_conf.h \
   ../include/bg_looper_setting.h \
   ../include/bg_looper_play.h \
+  ../include/bg_looper_source.h \
   /usr/include/stdio.h \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
@@ -80,8 +81,6 @@ CMakeFiles/demo.dir/src/bg_looper_setting.c.o: ../src/bg_looper_setting.c \
   /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
   /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
   ../include/bg_looper_conf.h \
-  ../include/bg_looper_source.h \
-  ../include/bg_looper_setting.h \
   ../include/bg_looper.h \
   ../include/bg_looper_conf.h \
   /usr/include/stdio.h \
@@ -309,12 +308,6 @@ CMakeFiles/demo.dir/src/main.c.o: ../src/main.c \
 
 /usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
 
-/usr/include/x86_64-linux-gnu/bits/getopt_posix.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
-
-/usr/include/stdio.h:
-
 /usr/include/x86_64-linux-gnu/bits/waitstatus.h:
 
 ../include/bg_looper.h:
@@ -333,6 +326,14 @@ CMakeFiles/demo.dir/src/main.c.o: ../src/main.c \
 
 /usr/include/x86_64-linux-gnu/bits/wordsize.h:
 
+/usr/include/x86_64-linux-gnu/bits/sigthread.h:
+
+/usr/include/x86_64-linux-gnu/bits/sigevent-consts.h:
+
+../include/bg_looper_source.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
+
 /usr/include/x86_64-linux-gnu/bits/environments.h:
 
 /usr/include/x86_64-linux-gnu/sys/select.h:
@@ -342,6 +343,12 @@ CMakeFiles/demo.dir/src/main.c.o: ../src/main.c \
 /usr/include/features-time64.h:
 
 ../src/bg_looper_play.c:
+
+/usr/include/x86_64-linux-gnu/bits/getopt_posix.h:
+
+/usr/include/stdio.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
 
@@ -354,14 +361,6 @@ CMakeFiles/demo.dir/src/main.c.o: ../src/main.c \
 /usr/include/x86_64-linux-gnu/bits/floatn-common.h:
 
 ../src/bg_looper_setting.c:
-
-/usr/include/x86_64-linux-gnu/bits/sigthread.h:
-
-/usr/include/x86_64-linux-gnu/bits/sigevent-consts.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
-
-../include/bg_looper_source.h:
 
 ../src/main.c:
 

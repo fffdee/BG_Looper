@@ -19,6 +19,7 @@ typedef struct{
 typedef struct{
 	
 	uint8_t looper_enable;
+	uint8_t record_ch; 
 	uint8_t first_bit;
 	uint8_t recording_flag;
 	uint8_t play_flag[MAX_CH];
@@ -39,7 +40,9 @@ typedef struct{
 
 }Loop_run_task;
 
+void show_data(uint8_t ch);
+void loop_note_update(uint8_t ch, uint8_t string, uint8_t note, 
+uint8_t vel, uint16_t start_time,uint16_t noteon_time );
 void bg_looper_run(void);
-
 
 #endif

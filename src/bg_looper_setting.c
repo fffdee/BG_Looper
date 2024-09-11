@@ -11,10 +11,10 @@
 	author  : BanGO
 ******************************************************/
 #include "bg_looper_setting.h"
-#include "bg_looper_source.h"
 #include "bg_looper.h"
 #include "bg_looper_conf.h"
 #include <stdio.h>
+
 
 ErrorCode bg_looper_play(uint8_t ch);
 ErrorCode bg_looper_record(uint8_t ch, uint8_t tone);
@@ -26,6 +26,8 @@ uint8_t bg_looper_get_state(void);
 void bg_looper_callback(void);
 uint8_t bg_looper_get_recording_state(void);
 void bg_looper_note_recorder(uint8_t state, uint8_t note, uint8_t vel);
+void bg_looper_get_loop_record(uint8_t ch);
+
 extern Loop_run_data loop_run_data;
 
 BG_Looper bg_looper = {
@@ -40,9 +42,14 @@ BG_Looper bg_looper = {
 		.stop_all 	= bg_looper_stop_all,
 		.callback	= bg_looper_callback,
 		.get_recording_state = bg_looper_get_recording_state,
+		.get_loop_record = bg_looper_get_loop_record,
 
 	
 };
+void bg_looper_get_loop_record(uint8_t ch){
+
+    show_data(ch);
+}
 
 uint8_t bg_looper_get_recording_state (void)
 {
@@ -114,7 +121,13 @@ void bg_looper_note_recorder(uint8_t state, uint8_t note, uint8_t vel)
 					,loop_run_data.last_note[string].vel
 					,loop_run_data.last_note[string].start_time
 					,loop_run_data.last_note[string].NoteOn_Time);
-				#endif	
+				#endif
+				loop_note_update(loop_run_data.record_ch, string
+									   ,loop_run_data.last_note[string].note
+									   ,loop_run_data.last_note[string].vel
+									   ,loop_run_data.last_note[string].start_time
+									   ,loop_run_data.last_note[string].NoteOn_Time);
+				loop_run_data.recording_count++;
 
 			}
 			
@@ -143,7 +156,7 @@ ErrorCode bg_looper_enable(uint8_t enable)
 ErrorCode bg_looper_record(uint8_t ch, uint8_t tone)
 {
 		if(ch>MAX_CH) return ERROR_OUT_OF_CH_RANGE;
-
+		loop_run_data.record_ch  = ch;
 		loop_run_data.channel_state[ch] = RECORDING;
 		#ifdef DEBUG
 			printf("The BG_Looper record %d channel is start\n",ch);
@@ -165,11 +178,12 @@ ErrorCode bg_looper_record_stop(uint8_t ch)
 {
 	
 	if(ch>MAX_CH) return ERROR_OUT_OF_CH_RANGE;
-	
+    loop_run_data.record_ch  = INVALID;
 	loop_run_data.channel_state[ch] = RECORDING_STOP;
+	bg_looper_get_loop_record(ch);
 	#ifdef DEBUG
 			printf("The BG_Looper record %d channel is stop\n",ch);
-		#endif
+	#endif
 	return SUCCESS;
 
 }

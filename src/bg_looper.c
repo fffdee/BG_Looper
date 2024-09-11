@@ -14,23 +14,24 @@
 #include "bg_looper_conf.h"
 #include "bg_looper_setting.h"
 #include "bg_looper_play.h"
+#include "bg_looper_source.h"
 #include <stdio.h>
 
-uint8_t bg_looper_recording(uint8_t ch);
-uint8_t bg_looper_plays(uint8_t ch);
-uint8_t bg_looper_stop(uint8_t state ,uint8_t ch);
+
+ErrorCode bg_looper_recording(uint8_t ch);
+ErrorCode bg_looper_plays(uint8_t ch);
+ErrorCode bg_looper_stop(uint8_t state ,uint8_t ch);
 Loop_run_data loop_run_data = {
 	
 	.looper_enable = 1,
+	.record_ch  = INVALID,
 	.first_bit = 0,
 	.recording_flag = 0,
-	.channel_state = {3},
+	.channel_state = {0},
 	.loop_play_time = {0},
 	.last_note = {0},
 	.noteon_time = {0},
 	.loop_recording_time = 0,
-	
-	
 
 };
 
@@ -75,7 +76,7 @@ void bg_looper_run(void)
 }
 
 
-uint8_t bg_looper_recording(uint8_t ch)
+ErrorCode bg_looper_recording(uint8_t ch)
 {
 	if(loop_run_data.recording_flag!=1){
 		loop_run_data.first_bit = 1;
@@ -96,7 +97,7 @@ uint8_t bg_looper_recording(uint8_t ch)
 	
 }
 
-uint8_t bg_looper_plays(uint8_t ch)
+ErrorCode bg_looper_plays(uint8_t ch)
 {
 	
 		looper_play(ch);
@@ -104,14 +105,66 @@ uint8_t bg_looper_plays(uint8_t ch)
 	
 }
 
-uint8_t bg_looper_stop(uint8_t state, uint8_t ch)
+void loop_note_update(uint8_t ch, uint8_t string, uint8_t note, 
+uint8_t vel, uint16_t start_time,uint16_t noteon_time )
 {
-		if(state){
+	loop_source[ch].loop_data[loop_run_data.recording_count].string = 	string;
+	loop_source[ch].loop_data[loop_run_data.recording_count].note = note;
+	loop_source[ch].loop_data[loop_run_data.recording_count].vel = vel;
+	loop_source[ch].loop_data[loop_run_data.recording_count].start_time = start_time;
+	loop_source[ch].loop_data[loop_run_data.recording_count].NoteOn_Time = noteon_time;
 
-		 looper_stop(ch);
+}
 
-		}else loop_run_data.recording_flag = 0;
+void show_data(uint8_t ch)
+{
+	printf("The recorder count:%d,\n",loop_source[ch].total);
+	for(uint16_t i =0; i<loop_source[ch].total ;i++){
+			#ifdef DEBUG
+					printf("The recorder updata: string:%d,note :%d, vel:%d, start_time:%d, noteon_time:%d\n"
+					,loop_source[ch].loop_data[i].string
+					,loop_source[ch].loop_data[i].note
+					,loop_source[ch].loop_data[i].vel
+					,loop_source[ch].loop_data[i].start_time
+					,loop_source[ch].loop_data[i].NoteOn_Time);
+				#endif
+	}
+}
 
+
+ErrorCode bg_looper_stop(uint8_t state, uint8_t ch)
+{
+		//if(state==PLAY_STOP){
+
+		// looper_stop(ch);
+
+		//}else if(state==RECORDING_STOP){
+			
+			if(loop_run_data.recording_flag!=RECORDING)
+			return CH_NO_RECORDING_NOW;
+			
+			loop_run_data.recording_flag = 0;
+			loop_source[ch].total = loop_run_data.recording_count;
+			#ifdef DEBUG
+				printf("The BG_Looper is record %d bit\n",loop_source[ch].total);
+			#endif
+			show_data(ch);
+			loop_run_data.recording_count = 0;
+			for (uint8_t i = 0; i < 6; i++)
+			{
+				loop_run_data.last_note[i].note = 0;
+				loop_run_data.last_note[i].noteon_flag = 0;
+				loop_run_data.last_note[i].NoteOn_Time = 0;
+				loop_run_data.last_note[i].start_time = 0;
+				loop_run_data.last_note[i].vel = 0;
+				loop_run_data.last_note[i].string = 0;
+			}
+
+			
+
+		//}
 		loop_run_data.channel_state[ch] = INVALID;
+
+		return SUCCESS;
 
 }

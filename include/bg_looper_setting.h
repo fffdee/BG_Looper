@@ -16,9 +16,11 @@ typedef struct{
 		uint8_t (*state)(void);
 		void (*callback)(void);
 		uint8_t (*get_recording_state)(void);
+		void (*get_loop_record)(uint8_t);
 
 }BG_Looper;
 
 
 extern BG_Looper bg_looper;
+
 #endif
