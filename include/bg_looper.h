@@ -36,7 +36,8 @@ typedef struct{
 	
 		ErrorCode (*recording)(uint8_t);
 		ErrorCode (*play)(uint8_t);
-		ErrorCode (*stop)(uint8_t, uint8_t);
+		ErrorCode (*record_stop)(uint8_t);
+		ErrorCode (*play_stop)(uint8_t);
 
 }Loop_run_task;
 

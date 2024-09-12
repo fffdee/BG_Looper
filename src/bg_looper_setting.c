@@ -155,6 +155,12 @@ ErrorCode bg_looper_enable(uint8_t enable)
 
 ErrorCode bg_looper_record(uint8_t ch, uint8_t tone)
 {
+		if(loop_run_data.recording_flag){
+			#ifdef DEBUG
+				printf("The BG_Looper is recorded\n");
+			#endif
+				return IS_RECORDING;
+			}	
 		if(ch>MAX_CH) return ERROR_OUT_OF_CH_RANGE;
 		loop_run_data.record_ch  = ch;
 		loop_run_data.channel_state[ch] = RECORDING;
@@ -180,7 +186,8 @@ ErrorCode bg_looper_record_stop(uint8_t ch)
 	if(ch>MAX_CH) return ERROR_OUT_OF_CH_RANGE;
     loop_run_data.record_ch  = INVALID;
 	loop_run_data.channel_state[ch] = RECORDING_STOP;
-	bg_looper_get_loop_record(ch);
+	loop_run_data.recording_flag = 0;
+	//bg_looper_get_loop_record(ch);
 	#ifdef DEBUG
 			printf("The BG_Looper record %d channel is stop\n",ch);
 	#endif

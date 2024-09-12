@@ -54,5 +54,5 @@ Loop_source loop_source[MAX_CH] = {
 	{0,0,0,0,loop_ch9},
 	
 };	
-extern Loop_source loop_source[MAX_CH];
+
 #endif

@@ -26,6 +26,7 @@ typedef enum {
     ERROR_OUT_OF_CH_RANGE,  // 超出通道范围
     CH_NO_RECORDING_NOW,
     CH_NO_PLAYING_NOW,
+    IS_RECORDING,
 
 } ErrorCode;
 

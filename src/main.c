@@ -58,7 +58,7 @@ void input_handle(uint8_t input)
 
         case 's':
         bg_looper.stop_record(0);
-        bg_looper.stop_play(0);
+      //  bg_looper.stop_play(0);
         break;
 
         case 0x0A:break;

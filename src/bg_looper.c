@@ -20,7 +20,8 @@
 
 ErrorCode bg_looper_recording(uint8_t ch);
 ErrorCode bg_looper_plays(uint8_t ch);
-ErrorCode bg_looper_stop(uint8_t state ,uint8_t ch);
+ErrorCode bg_looper_recording_stop(uint8_t ch);
+ErrorCode bg_looper_playing_stop(uint8_t ch);
 Loop_run_data loop_run_data = {
 	
 	.looper_enable = 1,
@@ -39,7 +40,8 @@ Loop_run_task loop_run_task = {
 
 	.play = bg_looper_plays,
 	.recording = bg_looper_recording,
-	.stop = bg_looper_stop,
+	.record_stop = bg_looper_recording_stop,
+	.play_stop = bg_looper_playing_stop,
 
 };
 //每1毫秒调用这个函数一次
@@ -60,11 +62,11 @@ void bg_looper_run(void)
 					break;
 				
 				case RECORDING_STOP:
-					loop_run_task.stop(RECORDING_STOP,i);
+					loop_run_task.record_stop(i);
 					printf("channel %d is Record_stop\n",i);
 					break;
 				case PLAY_STOP:
-					loop_run_task.stop(PLAY_STOP,i);
+					loop_run_task.play_stop(i);
 					printf("channel %d is Play_stop\n",i);
 					break;
 				default:
@@ -131,39 +133,36 @@ void show_data(uint8_t ch)
 	}
 }
 
+ErrorCode bg_looper_playing_stop(uint8_t ch){
+	loop_run_data.channel_state[ch] = INVALID;
+}
 
-ErrorCode bg_looper_stop(uint8_t state, uint8_t ch)
+ErrorCode bg_looper_recording_stop(uint8_t ch)
 {
-		//if(state==PLAY_STOP){
-
-		// looper_stop(ch);
-
-		//}else if(state==RECORDING_STOP){
 			
-			if(loop_run_data.recording_flag!=RECORDING)
-			return CH_NO_RECORDING_NOW;
 			
-			loop_run_data.recording_flag = 0;
-			loop_source[ch].total = loop_run_data.recording_count;
-			#ifdef DEBUG
+	
+		loop_run_data.recording_flag = 0;
+		loop_source[ch].total = loop_run_data.recording_count;
+		#ifdef DEBUG
 				printf("The BG_Looper is record %d bit\n",loop_source[ch].total);
-			#endif
-			show_data(ch);
-			loop_run_data.recording_count = 0;
-			for (uint8_t i = 0; i < 6; i++)
-			{
-				loop_run_data.last_note[i].note = 0;
-				loop_run_data.last_note[i].noteon_flag = 0;
-				loop_run_data.last_note[i].NoteOn_Time = 0;
-				loop_run_data.last_note[i].start_time = 0;
-				loop_run_data.last_note[i].vel = 0;
-				loop_run_data.last_note[i].string = 0;
-			}
+		#endif
+		show_data(ch);
+		loop_run_data.recording_count = 0;
+		for (uint8_t i = 0; i < 6; i++)
+		{
+			loop_run_data.last_note[i].note = 0;
+			loop_run_data.last_note[i].noteon_flag = 0;
+			loop_run_data.last_note[i].NoteOn_Time = 0;
+			loop_run_data.last_note[i].start_time = 0;
+			loop_run_data.last_note[i].vel = 0;
+			loop_run_data.last_note[i].string = 0;
+		}
 
 			
-
-		//}
 		loop_run_data.channel_state[ch] = INVALID;
+	
+		
 
 		return SUCCESS;
 
