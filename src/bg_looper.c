@@ -22,6 +22,11 @@ ErrorCode bg_looper_recording(uint8_t ch);
 ErrorCode bg_looper_plays(uint8_t ch);
 ErrorCode bg_looper_recording_stop(uint8_t ch);
 ErrorCode bg_looper_playing_stop(uint8_t ch);
+uint8_t get_loop_source_tone(uint8_t ch);
+uint8_t get_loop_source_bgm(uint8_t ch);
+uint16_t get_loop_source_total(uint8_t ch);
+Note_data get_loop_source_loop_note(uint8_t ch,uint16_t count);
+
 Loop_run_data loop_run_data = {
 	
 	.looper_enable = 1,
@@ -42,6 +47,10 @@ Loop_run_task loop_run_task = {
 	.recording = bg_looper_recording,
 	.record_stop = bg_looper_recording_stop,
 	.play_stop = bg_looper_playing_stop,
+	.get_total = get_loop_source_total,
+	.get_bgm = get_loop_source_bgm,
+	.get_tone = get_loop_source_tone,
+	.get_loop_note = get_loop_source_loop_note,
 
 };
 //每1毫秒调用这个函数一次
@@ -134,14 +143,14 @@ void show_data(uint8_t ch)
 }
 
 ErrorCode bg_looper_playing_stop(uint8_t ch){
+
 	loop_run_data.channel_state[ch] = INVALID;
+
 }
 
 ErrorCode bg_looper_recording_stop(uint8_t ch)
 {
 			
-			
-	
 		loop_run_data.recording_flag = 0;
 		loop_source[ch].total = loop_run_data.recording_count;
 		#ifdef DEBUG
@@ -165,5 +174,35 @@ ErrorCode bg_looper_recording_stop(uint8_t ch)
 		
 
 		return SUCCESS;
+
+}
+
+
+Note_data  get_loop_source_loop_note(uint8_t ch,uint16_t count){
+
+	Note_data note_data;
+	note_data.string = loop_source[ch].loop_data[count].string;
+	note_data.note = loop_source[ch].loop_data[count].note;
+	note_data.vel = loop_source[ch].loop_data[count].vel;
+	note_data.start_time = loop_source[ch].loop_data[count].start_time;
+	note_data.NoteOn_Time = loop_source[ch].loop_data[count].NoteOn_Time;
+	return note_data;
+}
+
+uint8_t get_loop_source_tone(uint8_t ch){
+
+	return loop_source[ch].tone;
+
+}
+
+uint8_t get_loop_source_bgm(uint8_t ch){
+
+	return loop_source[ch].bgm;
+
+}
+
+uint16_t get_loop_source_total(uint8_t ch){
+
+	return loop_source[ch].total;
 
 }
