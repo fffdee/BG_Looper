@@ -15,9 +15,8 @@
 #include "bg_looper_setting.h"
 #include "bg_looper_play.h"
 #include "bg_looper_source.h"
+
 #include <stdio.h>
-
-
 ErrorCode bg_looper_recording(uint8_t ch);
 ErrorCode bg_looper_plays(uint8_t ch);
 ErrorCode bg_looper_recording_stop(uint8_t ch);

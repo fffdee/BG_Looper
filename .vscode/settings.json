@@ -5,6 +5,7 @@
         "stdlib.h": "c",
         "stdio.h": "c",
         "bg_looper_setting.h": "c",
-        "bg_looper.h": "c"
+        "bg_looper.h": "c",
+        "kconfig_init.h": "c"
     }
 }

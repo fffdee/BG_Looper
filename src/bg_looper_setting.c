@@ -14,7 +14,7 @@
 #include "bg_looper.h"
 #include "bg_looper_conf.h"
 #include <stdio.h>
-
+#include "kconfig_int.h"
 
 ErrorCode bg_looper_play(uint8_t ch);
 ErrorCode bg_looper_record(uint8_t ch, uint8_t tone);
